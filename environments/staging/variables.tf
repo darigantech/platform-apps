@@ -1,8 +1,12 @@
-variable "ONLINE_KUBECONFIG" {
+# variable "ONLINE_KUBECONFIG" {
+#   type = string
+# }
+
+variable "CADDY_EMAIL" {
   type = string
 }
 
-variable "CADDY_EMAIL" {
+variable "PRODUCTION_KUBECONFIG" {
   type = string
 }
 

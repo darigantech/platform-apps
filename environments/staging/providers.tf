@@ -12,11 +12,12 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_path = var.ONLINE_KUBECONFIG
+  # config_path = var.ONLINE_KUBECONFIG
+  config_path = var.PRODUCTION_KUBECONFIG
 }
 
 provider "helm" {
   kubernetes {
-    config_path = var.ONLINE_KUBECONFIG
+    config_path = var.PRODUCTION_KUBECONFIG
   }
 }

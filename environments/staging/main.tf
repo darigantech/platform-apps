@@ -5,15 +5,15 @@ resource "kubernetes_namespace_v1" "staging" {
 }
 
 // Use git in future for source modules
-module "filebrowser" {
-  source = "../../modules/filebrowser"
-  app_name = var.file_browser.app_name
-  container = var.file_browser.container
-  deployment = var.file_browser.deployment
-  service = var.file_browser.service
-  volumes = var.file_browser.volumes
-  namespace = var.namespace
-}
+# module "filebrowser" {
+#   source = "../../modules/filebrowser"
+#   app_name = var.file_browser.app_name
+#   container = var.file_browser.container
+#   deployment = var.file_browser.deployment
+#   service = var.file_browser.service
+#   volumes = var.file_browser.volumes
+#   namespace = var.namespace
+# }
 
 module "nginx" {
   source = "../../modules/nginx"
@@ -23,9 +23,9 @@ module "nginx" {
   service = var.nginx.service
   namespace = var.namespace
 }
-
+#
 module "ingress" {
-  source = "../../modules/ingress"
+  source = "../../modules/ingressx"
   acmeCA = var.caddy.acmeCA
   caddy_helm_release = var.caddy.helm
   email  = var.CADDY_EMAIL

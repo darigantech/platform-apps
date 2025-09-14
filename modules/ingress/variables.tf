@@ -1,34 +1,22 @@
 variable "ingress" {
   type = object({
     name = string
+    namespace = string
+    acmeCA = string
     class = string
+    helm = object({
+      name = string
+      repository = string
+      chart = string
+    }),
+    rules = list(object({
+      host = string
+      path = string
+      path_type = string
+      service = string
+      port = number
+    }))
   })
-}
-
-variable "namespace" {
-  type = string
-}
-
-variable "rules" {
-  type = list(object({
-    host = string
-    path = string
-    path_type = string
-    service = string
-    port = number
-  }))
-}
-
-variable "caddy_helm_release" {
-  type = object({
-    name = string
-    repository = string
-    chart = string
-  })
-}
-
-variable "acmeCA" {
-  type = string
 }
 
 variable "email" {
